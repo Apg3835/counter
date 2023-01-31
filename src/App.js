@@ -1,12 +1,18 @@
+import { useSelector } from "react-redux";
 import "./App.css";
-import Counter from "./components/Counter";
-import Form from "./components/Form";
+import EditTodo from "./components/EditTodo";
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 function App() {
+  const formOpen = useSelector((state) => state.todo.editForm);
   return (
     <div>
-      <Counter />
-      <Form />
+      <ResponsiveAppBar />
+      <TodoForm />
+      {formOpen && <EditTodo />}
+      <TodoList />
     </div>
   );
 }
